@@ -79,7 +79,7 @@ def load_data(data_dir):
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=32)
 
-    return train_loader, test_loader, label_mapping # Return label mapping
+    return train_loader, test_loader, label_mapping, numerical_labels  
 
 '''
 Example to test utils.py

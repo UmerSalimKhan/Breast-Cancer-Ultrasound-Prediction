@@ -18,7 +18,7 @@ def load_model_and_mapping(model_path, device):
     return model, label_mapping
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model_path = "breast_cancer_simple_cnn_model.pth"  # Path to the saved model
+model_path = "models/breast_cancer_quad_cnn_weighted_class_model.pth"  # Path to the saved model
 model, label_mapping = load_model_and_mapping(model_path, device)
 
 
@@ -45,11 +45,11 @@ if uploaded_file is not None:
             probabilities = torch.nn.functional.softmax(output, dim=1)  # Get probabilities
             predicted_class_index = torch.argmax(probabilities).item()  # Get the index
 
-        print("Predicted class index: ", predicted_class_index)
+        # print("Predicted class index: ", predicted_class_index)
         # Find the key (class name) associated with the predicted index
         for label, index in label_mapping.items():
-            print("Label: ", label)
-            print("Index: ", index)
+            # print("Label: ", label)
+            # print("Index: ", index)
 
             if index == predicted_class_index:
                 predicted_label = label
@@ -57,7 +57,7 @@ if uploaded_file is not None:
         else:  # This else is associated with the for loop, in case no break occurs.
             predicted_label = "Unknown" #Handles the case where the predicted class is not found.
         
-        print("Predict labels: ", predicted_label)
+        # print("Predict labels: ", predicted_label)
 
         st.write(f"## Prediction: {predicted_label}")
 
