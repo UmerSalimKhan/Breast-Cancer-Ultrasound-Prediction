@@ -114,4 +114,10 @@ To clone this project on your system, use the following command on terminal:
 git clone https://github.com/UmerSalimKhan/Breast-Cancer-Ultrasound-Prediction.git
 ```
 
-Once, this project repository is cloned, moved to the project root folder and execute the above command. Once, all this is set, use the StreamLit command provided in StreamLit App section.
+It is recommended to create a virtual environment for this project. Once, this project repository is cloned, moved to the project root folder and execute the above command. Once, all this is set, use the StreamLit command provided in StreamLit App section.
+
+> Virtual Environment Command:
+ 
+```bash 
+python -m venv breast_cancer_env
+```
