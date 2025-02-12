@@ -1,0 +1,34 @@
+# Python bytecode files
+__pycache__/
+
+# Compiled Python files
+*.pyc
+
+# Python distribution files
+*.egg
+
+# Distribution and build directories
+dist/
+build/
+
+# Virtual environment directory 
+breast_cancer_venv/ 
+
+# Log Files
+*.log 
+
+# Data 
+D://Datasets//  
+
+# Model weights 
+*.pth
+
+# TensorBoard logs
+runs/
+
+# IDE specific files 
+# VS Code
+.vscode/ 
+
+# OS-specific files 
+.Thumbs.db
