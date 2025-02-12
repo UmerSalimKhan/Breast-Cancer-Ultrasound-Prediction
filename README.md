@@ -21,6 +21,7 @@ Breast cancer is a complex disease characterized by the uncontrolled growth of c
 This project aims to provide a support to medical professionals & non-medical folks to get to know about themselves at ease.
 
 ## Project Structure 
+```
 Breast Cancer detection - NeuralNets
 |-- imgs # Contains output images or other history 
     |-- confusion_matrix_simple_cnn.png
@@ -42,6 +43,7 @@ Breast Cancer detection - NeuralNets
 |-- train.py # Contains code for training the model 
 |-- utils.py # Contains code for data preprocessing & loading 
 |-- viz.py # Contains visualization code -- History, Metrics, Samples, ...
+```
 
 ## Data 
 > Dataset Link: https://www.kaggle.com/datasets/subhajournal/busi-breast-ultrasound-images-dataset
