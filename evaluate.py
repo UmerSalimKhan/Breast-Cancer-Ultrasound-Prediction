@@ -42,7 +42,7 @@ def evaluate_model(model, test_loader, device="cpu", label_mapping=None):  # Add
     print("Classification Report:\n", classification_report(all_labels, all_predictions, target_names=label_names))
 
     # Plot Confusion Matrix (using seaborn for better visualization)
-    plot_confusion_matrix(cm, label_names, "imgs/confusion_matrix_simple_cnn.png")
+    plot_confusion_matrix(cm, label_names, "imgs/confusion_matrix_evaluation_qaud_cnn_weighted_class.png")
 
     return accuracy  # You can return the accuracy if needed
 
@@ -52,10 +52,10 @@ if __name__ == "__main__":
     from utils import load_data
 
     data_dir = "D:/Datasets/Breast_Cancer_Ultrasound_dataset/Dataset_BUSI_with_GT"
-    _, test_loader, label_mapping = load_data(data_dir) # Only need the test_loader
+    _, test_loader, label_mapping, _ = load_data(data_dir) # Only need the test_loader
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model = SimpleCNN() # model
-    model.load_state_dict(torch.load("breast_cancer_simple_cnn_model.pth", map_location=device)) # Load to correct device
+    model.load_state_dict(torch.load("models/breast_cancer_quad_cnn_weighted_class_model.pth", map_location=device)) # Load to correct device
     model.to(device) # Move to correct device
     evaluate_model(model, test_loader, device=device, label_mapping=label_mapping) # Pass label mapping

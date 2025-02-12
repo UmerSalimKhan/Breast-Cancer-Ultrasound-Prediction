@@ -13,6 +13,7 @@ build/
 
 # Virtual environment directory 
 breast_cancer_venv/ 
+breast_cancer_ultrasound/
 
 # Log Files
 *.log 
@@ -22,6 +23,9 @@ D://Datasets//
 
 # Model weights 
 *.pth
+
+# Models folders
+models/
 
 # TensorBoard logs
 runs/

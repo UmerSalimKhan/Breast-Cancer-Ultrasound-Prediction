@@ -71,7 +71,8 @@ def plot_confusion_matrix(cm, label_names, file_name="confusion_matrix.png"):
     plt.ylabel("True Label")
     plt.title("Confusion Matrix")
     plt.savefig(file_name)
-    plt.show()
+    plt.close()  # Close the figure to release memory
+    # plt.show()
 
 
 
