@@ -1,9 +1,9 @@
 # Breast Cancer Ultrasound Image based Prediction
 
-**Note: This project is under-development and currently the model is seen to be overfitted. Some predictions of model is wrong.**
+**Note: This project is under-development and currently the model is seen to be overfitted. However, significant steps were taken sucessfully to reduce overfitting and imporve model test accuracy. Some predictions of model is still wrong. Especially for _normal_ class.**
 
 This is a learning based project which is trained on benign, malignant, & normal breasts ultrasound to make predictions about the disease. Breast cancer is a common disease among women and rare among mens. Making such project can be a helpful tool for doctors to find type on ease. It is note-worthy that this model gives good results even after being overfitted. 
-This project is leveraged using a simple CNN architecture for predictions.
+This project is leveraged using a quad CNN weighted class architecture for predictions currently _(as of 13 Feb, 2025)_.
 
 ## Table of contents
 * [Project Overview](#project-overview)
@@ -35,6 +35,9 @@ Breast Cancer detection - NeuralNets
     |-- streamlit_app_pred.png
     |-- streamlit_app_uploaded_img.png
     |-- training_history_simple_cnn.png
+    |-- ...
+|-- models # Various models saved in this folder
+    |-- ...
 |-- app.py # Contains StreamLit code
 |-- evaluate.py # Contains testing code 
 |-- main.py # The main file to call 
@@ -63,20 +66,20 @@ Cred: Descriptions is taken from the provided link.
 ![Random 3 images with it's mask](imgs/sample_images_and_masks.png)
 
 ## Model Architecture 
-**A simple Convolutional Neural Network with two Convolution layer with max pooling and two fully connected layer with output layer for 3 classes.**
+**A Quad Convolutional Neural Network with 4 Convolution layer with Batch Normalization, max pooling and Four fully connected layer with output layer for 3 classes.**
 
 
 ## Training & Evaluation 
 ### Training history - showing model being overfitted
-![Training history - showing model being overfitted](imgs/training_history_simple_cnn.png)
+![Training history - showing model being overfitted](imgs/training_history_quad_cnn_weighted_class.png)
 
 ### Confusion matrix 
-![Confusion matrix](imgs/confusion_matrix_simple_cnn.png)
+![Confusion matrix](imgs/confusion_matrix_quad_cnn_weighted_model.png)
 
 ### Complete result of model evaluation -- Overfitted
-![Complete result of model evaluation -- Overfitted](imgs/results_simple_cnn.png)
+![Complete result of model evaluation -- Overfitted](imgs/results_quad_cnn_weighted_class.png)
 
-_Model needs some improvement to mitigate overfitting. This can be achieved using Regularization, Dropout, etc. Or some other models such as UNet can be used which is a ResNet34 architechture better for image segmentation._
+_Model needs some more improvement to mitigate overfitting. Some other models such as UNet can be used which is a ResNet34 architechture better for image segmentation for overfitting mitigation._
 
 ## StreamLit App
 Use following command on terminal to run the app:
