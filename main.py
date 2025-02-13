@@ -1,6 +1,6 @@
 import torch
 from utils import load_data
-from models import SimpleCNN  # CNN model 
+from models import QuadCNN  # CNN model 
 from train import train_model  # Import the training function
 from viz import plot_training_history, visualize_data  # Import the plotting function
 
@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     # Training
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # Define device
-    model = SimpleCNN(dropout_rate=0.3)
+    model = QuadCNN(dropout_rate=0.3)
     trained_model, train_losses, test_losses, train_accuracies, test_accuracies = train_model(model, train_loader, test_loader, device=device, numerical_labels=numerical_labels) # Pass device to train_model
 
     # Saving model
