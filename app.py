@@ -3,7 +3,7 @@ import torch
 from PIL import Image
 from torchvision import transforms
 import numpy as np
-from models import SimpleCNN  # model class
+from models import UNetEncoderClassifier  # model class
 
 # Vaiables
 # Convert labels to numerical values 
@@ -12,13 +12,13 @@ label_mapping = {"benign": 0, "malignant": 1, "normal": 2}  # Define your mappin
 # Load the trained model and label mapping (do this ONCE at the start)
 @st.cache_resource  # Caching the loaded model to avoid reloading on every interaction
 def load_model_and_mapping(model_path, device):
-    model = SimpleCNN()  # model class
+    model = UNetEncoderClassifier(num_classes=3)  # model class
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()  # Set to evaluation mode
     return model, label_mapping
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model_path = "models/breast_cancer_quad_cnn_weighted_class_model.pth"  # Path to the saved model
+model_path = "models/unet/breast_cancer_unet_model_lr_sched_droupout60per_class_wt.pth"  # Path to the saved model
 model, label_mapping = load_model_and_mapping(model_path, device)
 
 
@@ -45,6 +45,7 @@ if uploaded_file is not None:
             probabilities = torch.nn.functional.softmax(output, dim=1)  # Get probabilities
             predicted_class_index = torch.argmax(probabilities).item()  # Get the index
 
+        # print("Probs: ", probabilities)
         # print("Predicted class index: ", predicted_class_index)
         # Find the key (class name) associated with the predicted index
         for label, index in label_mapping.items():
