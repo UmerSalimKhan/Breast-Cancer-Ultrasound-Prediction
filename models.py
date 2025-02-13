@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F  # For activation functions
 
-class SimpleCNN(nn.Module):
+class QuadCNN(nn.Module):
     def __init__(self, num_classes=3, dropout_rate=0.5):  # 3 classes: benign, malignant, normal
-        super(SimpleCNN, self).__init__()
+        super(QuadCNN, self).__init__()
         # Convolutional layers
         self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1)  # Increased filters
         self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)  # Increased filters
